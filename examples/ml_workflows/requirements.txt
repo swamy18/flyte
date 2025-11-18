@@ -1,0 +1,39 @@
+# ML Workflows Dependencies
+# Core Flyte dependencies
+flytekit>=1.10.0
+flytekitplugins-sklearn>=1.10.0
+
+# ML/Data Science libraries
+scikit-learn>=1.3.0
+pandas>=2.0.0
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Hyperparameter Optimization
+optuna>=3.3.0
+scikit-optimize>=0.9.0
+
+# Data Validation
+great-expectations>=0.18.0
+
+# Model Registry and Tracking
+mlflow>=2.7.0
+
+# Distributed Training
+torch>=2.0.0
+tensorflow>=2.13.0
+
+# Monitoring and Observability
+prometheus-client>=0.17.0
+statsd>=4.0.0
+
+# Utilities
+pyyaml>=6.0.0
+click>=8.1.0
+python-dateutil>=2.8.0
+joblib>=1.3.0
+
+# Testing (optional, for development)
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
