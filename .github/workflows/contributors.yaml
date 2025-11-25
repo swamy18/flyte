@@ -22,7 +22,8 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
-        token: ${{ secrets.GITHUB_TOKEN }}          commit-message: '[auto-update-contributors] update all-contributors'
+        token: ${{ secrets.GITHUB_TOKEN }}
+                commit-message: '[auto-update-contributors] update all-contributors'
           committer: Flyte Bot <admin@flyte.org>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: true
