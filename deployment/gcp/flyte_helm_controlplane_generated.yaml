@@ -147,6 +147,11 @@ data:
           - openid
     flyteadmin:
       eventVersion: 2
+      identityAnnotationKeys:
+      - email
+      - sub
+      identityAnnotationPrefix: flyte.org
+      injectIdentityAnnotations: false
       metadataStoragePrefix:
       - metadata
       - admin
@@ -600,7 +605,7 @@ spec:
   template:
     metadata:
       annotations:
-        configChecksum: "e952d320a403549f597a6e5c264a4284fb2ae2e33b57c54e70975bf4f0f4f9a"
+        configChecksum: "63945c02dbcc525d849d434474d6c0f8cd21993545e9367d1326a98de282db2"
       labels: 
         app.kubernetes.io/name: flyteadmin
         app.kubernetes.io/instance: flyte
@@ -621,7 +626,7 @@ spec:
           - /etc/flyte/config/*.yaml
           - migrate
           - run
-          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.2"
+          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.3"
           imagePullPolicy: "IfNotPresent"
           name: run-migrations
           securityContext:
@@ -642,7 +647,7 @@ spec:
           - flytesnacks
           - flytetester
           - flyteexamples
-          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.2"
+          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.3"
           imagePullPolicy: "IfNotPresent"
           name: seed-projects
           securityContext:
@@ -660,7 +665,7 @@ spec:
           - /etc/flyte/config/*.yaml
           - clusterresource
           - sync
-          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.2"
+          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.3"
           imagePullPolicy: "IfNotPresent"
           name: sync-cluster-resources
           securityContext:
@@ -677,7 +682,7 @@ spec:
           - mountPath: /etc/secrets/
             name: admin-secrets
         - name: generate-secrets
-          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.2"
+          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.3"
           imagePullPolicy: "IfNotPresent"
           command: ["/bin/sh", "-c"]
           args:
@@ -704,7 +709,7 @@ spec:
         - --config
         - /etc/flyte/config/*.yaml
         - serve
-        image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.2"
+        image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.3"
         imagePullPolicy: "IfNotPresent"
         name: flyteadmin
         ports:
@@ -813,7 +818,7 @@ spec:
             - /etc/flyte/config/*.yaml
             - clusterresource
             - run
-          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.2"
+          image: "cr.flyte.org/flyteorg/flyteadmin:v1.16.3"
           imagePullPolicy: "IfNotPresent"
           name: sync-cluster-resources
           volumeMounts:
@@ -943,7 +948,7 @@ spec:
         - /etc/datacatalog/config/*.yaml
         - migrate
         - run
-        image: "cr.flyte.org/flyteorg/datacatalog:v1.16.2"
+        image: "cr.flyte.org/flyteorg/datacatalog:v1.16.3"
         imagePullPolicy: "IfNotPresent"
         name: run-migrations
         volumeMounts:
@@ -961,7 +966,7 @@ spec:
         - --config
         - /etc/datacatalog/config/*.yaml
         - serve
-        image: "cr.flyte.org/flyteorg/datacatalog:v1.16.2"
+        image: "cr.flyte.org/flyteorg/datacatalog:v1.16.3"
         imagePullPolicy: "IfNotPresent"
         name: datacatalog
         ports:
@@ -1026,7 +1031,7 @@ spec:
   template:
     metadata:
       annotations:
-        configChecksum: "e952d320a403549f597a6e5c264a4284fb2ae2e33b57c54e70975bf4f0f4f9a"
+        configChecksum: "63945c02dbcc525d849d434474d6c0f8cd21993545e9367d1326a98de282db2"
       labels: 
         app.kubernetes.io/name: flytescheduler
         app.kubernetes.io/instance: flyte
@@ -1046,7 +1051,7 @@ spec:
         - precheck
         - --config
         - /etc/flyte/config/*.yaml
-        image: "cr.flyte.org/flyteorg/flytescheduler:v1.16.2"
+        image: "cr.flyte.org/flyteorg/flytescheduler:v1.16.3"
         imagePullPolicy: "IfNotPresent"
         name: flytescheduler-check
         securityContext:
@@ -1066,7 +1071,7 @@ spec:
         - run
         - --config
         - /etc/flyte/config/*.yaml
-        image: "cr.flyte.org/flyteorg/flytescheduler:v1.16.2"
+        image: "cr.flyte.org/flyteorg/flytescheduler:v1.16.3"
         imagePullPolicy: "IfNotPresent"
         name: flytescheduler
         ports:
